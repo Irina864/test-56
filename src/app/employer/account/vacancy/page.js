@@ -88,23 +88,23 @@
 // };
 
 // export default EditVacancyPage;
-"use client";
+'use client';
 
-import { linkHrefEditVacancy } from "@/Links";
-import Nav from "@/components/Nav/Nav";
-import VacancyDetails from "@/components/VacancyDetails/VacancyDetails";
-import VacancyList from "@/components/VacancyDetails/VacancyList";
-import { getVacanciesListForEmployer } from "@/store/API/vacanciesSlice";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import styles from "./page.module.scss";
+import { linkHrefEditVacancy } from '@/Links';
+import Nav from '@/components/Nav/Nav';
+import VacancyDetails from '@/components/VacancyDetails/VacancyDetails';
+import VacancyList from '@/components/VacancyDetails/VacancyList';
+import { getVacanciesListForEmployer } from '@/store/API/vacanciesSlice';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styles from './page.module.scss';
 
 const EditVacancyPage = () => {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
-  const vacancyIdFromURL = searchParams.get("vacancyId");
+  const vacancyIdFromURL = searchParams.get('vacancyId');
 
   const { vacanciesList, isLoading } = useSelector((state) => state.vacancies);
   const [selectedVacancy, setSelectedVacancy] = useState(null);
@@ -137,11 +137,13 @@ const EditVacancyPage = () => {
 
       <div className={styles.container}>
         <aside>
-          <VacancyList
-            vacancies={vacanciesList}
-            selectedVacancy={selectedVacancy}
-            onVacancySelect={handleVacancySelect}
-          />
+          <Suspense fallback={<div>Загрузка вакансий...</div>}>
+            <VacancyList
+              vacancies={vacanciesList}
+              selectedVacancy={selectedVacancy}
+              onVacancySelect={handleVacancySelect}
+            />
+          </Suspense>
         </aside>
 
         <div>
