@@ -108,29 +108,29 @@ const EditVacancyPage = () => {
   //! в адресной строке было id пользователя! id вакансии там никогда не было
   // const vacancyIdFromURL = searchParams.get('vacancyId');
 
-  const { vacanciesList, isLoading } = useSelector((state) => state.vacancies);
-  const [selectedVacancy, setSelectedVacancy] = useState(null);
+  // const { vacanciesList, isLoading } = useSelector((state) => state.vacancies);
+  // const [selectedVacancy, setSelectedVacancy] = useState(null);
 
-  useEffect(() => {
-    dispatch(getVacanciesListForEmployer());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getVacanciesListForEmployer());
+  // }, [dispatch]);
 
-  useEffect(() => {
-    if (vacanciesList.length > 0) {
-      const foundVacancy = vacanciesList.find(
-        (vacancy) => vacancy.id === Number(vacancyIdFromURL)
-      );
-      setSelectedVacancy(foundVacancy || vacanciesList[0]);
-    }
-  }, [vacanciesList, vacancyIdFromURL]);
+  // useEffect(() => {
+  //   if (vacanciesList.length > 0) {
+  //     const foundVacancy = vacanciesList.find(
+  //       (vacancy) => vacancy.id === Number(vacancyIdFromURL)
+  //     );
+  //     setSelectedVacancy(foundVacancy || vacanciesList[0]);
+  //   }
+  // }, [vacanciesList, vacancyIdFromURL]);
 
-  const handleVacancySelect = (vacancy) => {
-    setSelectedVacancy(vacancy);
-  };
+  // const handleVacancySelect = (vacancy) => {
+  //   setSelectedVacancy(vacancy);
+  // };
 
   return (
     <main className={styles.main}>
-      <nav className={styles.nav}>
+      {/* <nav className={styles.nav}>
         <Nav page="Вакансия" isVacancy={true} />
         <Link className={styles.nav__btn} href={linkHrefEditVacancy}>
           Редактировать
@@ -149,9 +149,22 @@ const EditVacancyPage = () => {
         <div>
           {selectedVacancy && <VacancyDetails vacancy={selectedVacancy} />}
         </div>
-      </div>
+      </div> */}
     </main>
   );
 };
 
 export default EditVacancyPage;
+//! + ошибка деплоя
+// ReferenceError: vacancyIdFromURL is not defined
+// at y (/vercel/path0/.next/server/app/employer/account/vacancy/page.js:1:6516)
+// at nj (/vercel/path0/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46251)
+// at nM (/vercel/path0/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47571)
+// at nN (/vercel/path0/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+// at nI (/vercel/path0/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47010)
+// at nM (/vercel/path0/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47717)
+// at nM (/vercel/path0/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61546)
+// at nN (/vercel/path0/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64546)
+// at nB (/vercel/path0/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:67538)
+// at nD (/vercel/path0/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:66680) {
+// digest: '3903321183'
