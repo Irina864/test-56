@@ -97,7 +97,7 @@ import VacancyList from '@/components/VacancyDetails/VacancyList';
 import { getVacanciesListForEmployer } from '@/store/API/vacanciesSlice';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './page.module.scss';
 
