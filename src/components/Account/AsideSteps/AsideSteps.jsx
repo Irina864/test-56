@@ -90,7 +90,7 @@ const AsideSteps = ({ onOptionClick, setCurrentStepTitle }) => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    // localStorage.removeItem('token');
     Cookies.remove('access_token');
     Cookies.remove('refresh_token');
     Cookies.remove('user_mode');

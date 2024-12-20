@@ -1,41 +1,41 @@
-"use client";
+'use client';
 
 import {
   linkHrefApplicantAccount,
   linkHrefCreateVacancy,
   linkHrefEmployerAccount,
-} from "@/Links";
-import { disableAutorization } from "@/store/authorizationSlice";
-import { toggleIsBurgerMenuOpen } from "@/store/headerSlice";
-import { setPage } from "@/store/pageSliceAccount";
-import Cookies from "js-cookie";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useDispatch } from "react-redux";
-import styles from "./BurgerMenu.module.scss";
+} from '@/Links';
+import { disableAutorization } from '@/store/authorizationSlice';
+import { toggleIsBurgerMenuOpen } from '@/store/headerSlice';
+import { setPage } from '@/store/pageSliceAccount';
+import Cookies from 'js-cookie';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import styles from './BurgerMenu.module.scss';
 
 const BurgerMenu = () => {
   const pathname = usePathname();
   const dispatch = useDispatch();
 
   const isEmployerAuthorizate =
-    pathname.includes("employer") || pathname.includes("resumes");
+    pathname.includes('employer') || pathname.includes('resumes');
   const employerMenuItems = [
-    "О компании",
-    "Вакансии компании",
-    "Уведомления",
-    "Безопасность",
-    "Поддержка",
-    "",
-    "Выйти",
+    'О компании',
+    'Вакансии компании',
+    'Уведомления',
+    'Безопасность',
+    'Поддержка',
+    '',
+    'Выйти',
   ];
   const applicantMenuItems = [
-    "О себе",
-    "Уведомления",
-    "Безопасность",
-    "Поддержка",
-    "",
-    "Выйти",
+    'О себе',
+    'Уведомления',
+    'Безопасность',
+    'Поддержка',
+    '',
+    'Выйти',
   ];
 
   let currentMenuItems = isEmployerAuthorizate
@@ -45,23 +45,23 @@ const BurgerMenu = () => {
   const hendleNavigate = (item) => {
     // Для перехода на нужную страницу назначаем шаг или отменяем авторизацию
     let step = 0;
-    if (item === "Выйти") {
-      localStorage.removeItem("token");
-      Cookies.remove("access_token");
-      Cookies.remove("refresh_token");
-      Cookies.remove("user_mode");
+    if (item === 'Выйти') {
+      // localStorage.removeItem("token");
+      Cookies.remove('access_token');
+      Cookies.remove('refresh_token');
+      Cookies.remove('user_mode');
       dispatch(disableAutorization());
     }
     if (isEmployerAuthorizate) {
-      if (item === "Вакансии компании") step = 1;
-      if (item === "Уведомления") step = 2;
-      if (item === "Безопасность") step = 3;
-      if (item === "Поддержка") step = 4;
+      if (item === 'Вакансии компании') step = 1;
+      if (item === 'Уведомления') step = 2;
+      if (item === 'Безопасность') step = 3;
+      if (item === 'Поддержка') step = 4;
     } else {
-      if (item === "О себе") step = 0;
-      if (item === "Уведомления") step = 1;
-      if (item === "Безопасность") step = 2;
-      if (item === "Поддержка") step = 3;
+      if (item === 'О себе') step = 0;
+      if (item === 'Уведомления') step = 1;
+      if (item === 'Безопасность') step = 2;
+      if (item === 'Поддержка') step = 3;
     }
 
     dispatch(setPage(step));
@@ -75,8 +75,8 @@ const BurgerMenu = () => {
         const intervalItem = currentMenuItems.length - 2;
         // По условию назначаем путь для ссылки (работодатель/соискатель)
         let createURL = (item) => {
-          if (item === "Выйти") return "/";
-          if (item === "Новая вакансия") return linkHrefCreateVacancy;
+          if (item === 'Выйти') return '/';
+          if (item === 'Новая вакансия') return linkHrefCreateVacancy;
           else {
             if (isEmployerAuthorizate) return linkHrefEmployerAccount;
             else return linkHrefApplicantAccount;

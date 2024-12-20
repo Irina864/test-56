@@ -328,7 +328,7 @@ const Header = () => {
           <button
             className={styles.header__logout}
             onClick={() => {
-              localStorage.removeItem('token');
+              // localStorage.removeItem('token');
               Cookies.remove('access_token');
               Cookies.remove('refresh_token');
               Cookies.remove('user_mode');
