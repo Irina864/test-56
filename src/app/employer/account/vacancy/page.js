@@ -106,7 +106,7 @@ const EditVacancyPage = () => {
   // const searchParams = useSearchParams();
   //! использование useSearchParams() без Suspense вызывает ошибку деплоя:useSearchParams() should be wrapped in a suspense boundary at page "/employer/account/vacancy". Read more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
   //! в адресной строке было id пользователя! id вакансии там никогда не было
-  const vacancyIdFromURL = searchParams.get('vacancyId');
+  // const vacancyIdFromURL = searchParams.get('vacancyId');
 
   const { vacanciesList, isLoading } = useSelector((state) => state.vacancies);
   const [selectedVacancy, setSelectedVacancy] = useState(null);
