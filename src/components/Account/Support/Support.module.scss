@@ -1,0 +1,82 @@
+@import '@/variables';
+@import '@/template';
+
+.container {
+  width: 752px;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.notification {
+  z-index: 20;
+  position: absolute;
+  top: 128px;
+  right: 13vw;
+}
+.errorBox {
+  z-index: 20;
+  position: absolute;
+  top: 123px;
+  right: 0vw;
+}
+.content {
+  width: 752px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  .content__inputBox {
+    width: 736px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 10px;
+    .content__inputBox__lable {
+      @include font(16px, $colorText, 400);
+      line-height: 19.2px;
+    }
+  }
+  .content__addBox {
+    width: 700px;
+    height: 19px;
+    display: flex;
+    gap: 12px;
+    .content__addBox__btn {
+      // width: fit-content;
+      height: 19px;
+      cursor: none;
+    }
+    .content__addBox__btn_label {
+      // width: auto;
+      @include font(16px, $colorTextChangeInfo, 400);
+      text-decoration: underline;
+      text-align: center;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    .content__addBox__p {
+      width: fit-content;
+      height: 17px;
+      @include font(14px, $colorTextUnactive, 400);
+      cursor: default;
+    }
+    .content__addBox__btn_del {
+      width: 16px;
+      height: 16px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .errorInput {
+    border-color: $colorInputBorderError;
+  }
+  .error {
+    @include font(14px, $colorTextUnactive, 400);
+    line-height: 16.8px;
+    text-align: left;
+    color: $colorTextError;
+  }
+}

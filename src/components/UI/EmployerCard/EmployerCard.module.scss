@@ -1,0 +1,104 @@
+@import '@/template';
+@import '@/variables';
+
+.card {
+   width: 498px;
+   height: 258px;
+   padding: 24px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   border-radius: 14px;
+   @include font(20px, $colorText, 400);
+   border: 0.5px solid $colorButtonBorderDisabled;
+   background: $colorBackgroundForm;   
+   
+   .card__header {
+      width: 450px;
+      height: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .card__header__logo {
+         width: 380px;
+         height: 36px;
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         white-space: nowrap;
+         align-content: center;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         cursor: default;
+         .card__header__logo__img {
+            width: 36px;
+            height: 36px;
+            border-radius: 30px;
+         }
+         .card__header__logo__title {
+            // @include font(20px, $colorText, 400);
+            line-height: 24px;
+            text-align: left;
+         }
+      }
+      .card__header__fav {
+         all: unset;
+         width: 24px;
+         height: 24px;
+         // padding: 3px 1px 2px 1px;
+         cursor: pointer;
+      }
+   }
+   .card__title {
+      width: 450px;
+      height: 29px;
+      @include font(24px, $colorText, 500);
+      white-space: nowrap;
+      align-content: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: default;
+      line-height: 28.8px;
+      text-align: left;
+   }
+   .card__data {
+      width: 450px;
+      height: 56px;
+      gap: 8px;
+      display: flex;
+      flex-direction: column;
+      .card__data__city,
+      .card__data__exp {
+         width: 450px;
+         height: 24px;
+         display: flex;
+         gap: 4px;
+         white-space: nowrap;
+         align-content: center;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         cursor: default;
+      }
+      .card__data__img {
+         width: 24px;
+         height: 24px;
+      }
+      .card__data__title {
+         width: fit-content;
+         height: 19px;
+         @include font(16px, $colorTextUnactive, 400);
+         line-height: 19.2px;
+         text-align: left;
+      }
+   }
+   .card__salary {
+      @include font(24px, $colorText, 500);
+      line-height: 28.8px;
+      text-align: left;
+      // font-weight: bold;
+      cursor: default;
+   }
+}
+.card_active {
+   border: 2px solid $colorItemBorder;
+}

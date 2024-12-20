@@ -1,0 +1,56 @@
+@import '@/template';
+@import '@/variables';
+
+.card{
+   width: 372px;
+   height: 100px;
+   border-radius: 14px;
+   background: $colorBackgroundForm;
+   padding: 16px;
+   display: flex;
+   gap: 6px;
+   .card__logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 100px;
+      background: $colorFilterBackgroundActive;
+   }
+   .card__data {
+      width: 272px;
+      height: 68px;
+      padding-bottom: 3px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .card__data__title {
+         width: 272px;
+         height: 14px;
+         display: flex;
+         justify-content: space-between;
+         .card__data__title__left{
+            width: 84px;
+            height: 14px;
+            border-radius: 100px;
+            background: $colorFilterBackgroundActive;
+         }
+         .card__data__title__right {
+            width: 44px;
+            height: 14px;
+            border-radius: 100px;
+            background: $colorFilterBackgroundActive;
+         }
+      }
+      .card__data__content {
+         width: 195px;
+         height: 14px;
+         border-radius: 100px;
+         background: $colorFilterBackgroundActive;
+      }
+      .card__data__footer {
+         width: 135px;
+         height: 14px;
+         border-radius: 100px;
+         background: $colorFilterBackgroundActive;
+      }
+   }
+}

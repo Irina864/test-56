@@ -1,0 +1,26 @@
+@import '@/variables';
+@import '@/template';
+
+.successbox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .successimg {
+    margin-right: 5px;
+  }
+
+  .successtext {
+    display: flex;
+    align-items: center;
+    @include font(16px, $colorTextSuccess, 400);
+  }
+
+  .biggerText {
+    font-size: 16px;
+  }
+
+  .center {
+    justify-content: center;
+  }
+}

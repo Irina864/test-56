@@ -1,0 +1,28 @@
+@import '@/variables';
+@import '@/template';
+
+.formBtn {
+   width: 752px;
+   height: 46px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+}
+.btn {
+   width: 127px;
+   height: 46px;
+   padding: 12px 24px 12px 24px;
+   border: none;
+   border-radius: 10px;
+   @include font(16px, $colorTextLight, 400);
+   background-color: $colorButtonDark;
+   &:hover {
+      cursor: pointer;
+      background-color: $colorButtonDarkHover;
+      transition: background-color 0.3s ease;
+   }
+   &:active {
+      background-color: $colorButtonDarkActive;
+   }
+ }
+
