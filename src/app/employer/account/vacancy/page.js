@@ -96,14 +96,16 @@ import VacancyDetails from '@/components/VacancyDetails/VacancyDetails';
 import VacancyList from '@/components/VacancyDetails/VacancyList';
 import { getVacanciesListForEmployer } from '@/store/API/vacanciesSlice';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState, Suspense } from 'react';
+// import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './page.module.scss';
 
 const EditVacancyPage = () => {
   const dispatch = useDispatch();
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
+  //! использование useSearchParams() без Suspense вызывает ошибку деплоя:useSearchParams() should be wrapped in a suspense boundary at page "/employer/account/vacancy". Read more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+  //! в адресной строке было id пользователя! id вакансии там никогда не было
   const vacancyIdFromURL = searchParams.get('vacancyId');
 
   const { vacanciesList, isLoading } = useSelector((state) => state.vacancies);
@@ -137,13 +139,11 @@ const EditVacancyPage = () => {
 
       <div className={styles.container}>
         <aside>
-          <Suspense fallback={<div>Загрузка вакансий...</div>}>
-            <VacancyList
-              vacancies={vacanciesList}
-              selectedVacancy={selectedVacancy}
-              onVacancySelect={handleVacancySelect}
-            />
-          </Suspense>
+          <VacancyList
+            vacancies={vacanciesList}
+            selectedVacancy={selectedVacancy}
+            onVacancySelect={handleVacancySelect}
+          />
         </aside>
 
         <div>
